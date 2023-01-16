@@ -1,0 +1,836 @@
+body {
+    margin: 0;
+    font-family: system-ui;
+
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.leftContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    width: 10%;
+    background-color:  #1711a1;
+    padding: 32px;
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    transition: transform 250ms ease-in-out;
+}
+
+.openLeftContainer {
+    transform: translateX(0%) !important;
+    transition: transform 250ms ease-in-out;
+    width: 100%;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    padding-left: 0px;
+    padding-right: 0px
+}
+
+.closeContainerIcon {
+    position: fixed;
+    height: 50px;
+    right: 35px;
+    top: 25px;
+    filter: invert(1);
+    display: none;
+}
+
+.rightContainer {
+    width: calc(100% - 150px);
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-right: 2%;
+    margin-left: 16%;
+}
+
+.board {
+    display: flex;
+    justify-content: space-around;
+    height: 100%;
+    
+}
+
+.header {
+    width: 100%;
+    background-color:  #1711a1;
+    position: fixed;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    transform: translateY(-101%);
+    transition: transform 250ms ease-in-out;
+}
+
+.sidebarIcon {
+    filter: invert(100%);
+    position: absolute;
+    left: 10px;
+}
+
+.headerLogo {
+    height: 45px;
+    width: 40px;
+}
+
+.translateX {
+    transform: translateX(-101%);
+}
+
+.widht100 {
+    width: 100%;
+}
+
+.translateY {
+    transform: translateY(-101%);
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.menuLink {
+    height: 200px;
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menuLink a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 25px;
+    padding: 8px;
+}
+
+.menuLink a:hover {
+    cursor: pointer;
+    margin-left: 5px;
+    padding-left: 25px ;
+    transition: margin-left 0.5s, padding-left 0.5s;
+}
+
+.bgColor {
+    background-color: lightgray;
+    width: 100%;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.bgColor h2 {
+    background-color: white;
+    height: 44px;
+    width: 100%;
+    margin-top: 0px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.todoBox {
+    border: 1px solid  #1711a1;
+    border-left: 4px solid  #1711a1;
+    margin: 8px 0px;
+    border-radius: 6px;
+    background-color: lightblue;
+    cursor: pointer;
+}
+
+.todoBox:hover {
+    filter: invert(8%);
+}
+
+/****   Backlog     ****/
+
+.backlog {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.headBacklog {
+    display: flex;
+    flex-direction: column;
+    height: 120px;
+    justify-content: center;
+}
+
+.headBacklog2ndRow {
+    margin-top: -15px;
+    font-size: 13px;
+    color:  #1711a1;
+    font-weight: 600;
+}
+
+.descriptions {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    margin-top: 27px;
+    font-size: 21px;
+    color:  black;
+    font-weight: bold;
+}
+
+.tasks {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.underTask{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.task {
+    background-color: lightgray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    padding: 8px;
+    border-radius: 7px; 
+    border-left: 5px solid #1711a1;
+}
+
+.popup {
+    position: absolute;
+    height: 200px;
+    width: 270px;
+    top:30%;
+    left: 40%;
+    border-radius: 10px;
+    background-color: #1711a1;
+    color: white;
+    padding: 10px;
+    z-index: 5;
+}
+
+.notClickabel {
+    background-color: #828282;
+    opacity: 0.5;
+    z-index: 1;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+}
+
+.secondNotClickabel{
+    background-color: #828282;
+    opacity: 0.5;
+    z-index: 1;
+    height: 75vh;
+    width: 75vw;
+    position: fixed;
+    top: 15%;
+    left: 19%;
+    border-radius: 30px;
+}
+
+.createdTaskPopup{
+    position: fixed;
+    top: 35%;
+    left: 40%;
+    width: 400px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #1711a1;
+    color: #F0F0F0;
+    border-radius: 20px;
+    z-index: 5;
+}
+
+.secondPopup{
+    display: flex;
+    justify-content: flex-end;
+    width:400px ;
+}
+
+.newExitStyle{
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    border-top-right-radius: 6px;
+    margin-top: 5px;
+    margin-right: 5px;
+    filter: invert(1);
+}
+.newExitStyle:hover  {
+    filter: invert(30%);
+}
+
+.taskTopline {
+    display: flex;
+    justify-content: space-between;
+}
+
+.boardBtn {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    border-top-right-radius: 6px;
+    filter: invert(1);
+}
+
+.firstDeleteButton {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    border-top-right-radius: 6px;
+    filter: invert(30%);
+}
+
+.firstDeleteButton:hover {
+    filter: invert(0);
+}
+
+.boardButton {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    border-top-right-radius: 6px;
+}
+.boardButton:hover{
+    filter: invert(30%);
+}
+
+
+.boardBtn:hover {
+    filter: invert(50%);
+}
+
+.name {
+    display: flex;
+    flex-direction: column;
+}
+
+.width33 {
+    width: 33%;
+    font-size: 20px;
+}
+
+.backlogImg {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.backlogBtnGroup {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10px;
+    width: 100%;
+}
+.backlogBtn {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+}
+
+.backlogBtn:hover {
+    filter: invert(30%);
+}
+
+.headAddTask {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 32px;
+}
+
+.headHelpSection {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 32px;
+   
+    
+}
+
+.headHelp2ndRow {
+    font-size: 16px;
+    color: #1711a1;
+    font-weight: 600;
+   padding-top: -16px !important;
+}
+
+.helpSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 32px;
+    background-color: #F0F0F0;
+    padding: 30px;
+}
+
+form {
+    display: flex;
+    justify-content: space-around;
+    background-color: #d8dee5;
+    border-radius: 10px;
+    margin-top: 32px;
+    padding: 32px;
+}
+
+.inputBox p {
+    color:  #1711a1;
+}
+
+.inputFieldSize {
+    width: 300px;
+    height: 40px;
+    font-size: 15px;
+    border-radius: 4px;
+    border: 1px solid lightgray;
+    padding: 0;
+    margin: 0;
+}
+
+.inputDescriptionField{
+    width: 300px;
+}
+
+.descriptionDetails {
+    width: 150px;
+    overflow-wrap: anywhere;
+    margin-right: 8px;
+    font-size: 20px;
+}
+
+.profile {
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    margin-right: 15px;
+}
+
+.avatarbox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#usersAccount {
+    display: flex;
+}
+
+.userImg {
+    width: 38px;
+    height: 38px;
+    padding-left: 8px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 100%;
+    margin-right: 8px;
+}
+
+/* .userName {
+    padding-left: 8px;
+}*/
+
+.userDiv {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+} 
+
+.avatarPickerMain {
+    display: flex;
+    align-items: center;
+}
+#usersAccount{
+    left: 30px;
+}
+
+.profileBorder {
+    border:4px solid transparent ;
+}
+
+.profileBorder:hover {
+    opacity: 1;
+}
+
+.avatarbox p {
+    color: black;
+}
+
+.addButtonAvatar {
+    width: 50px;
+    height: 50px;
+    padding-top: 56px;
+    margin: 10px;
+    display: none;
+    
+}
+
+.avatarCornize{
+    opacity: 1;
+    border: 4px solid #18d4da;
+}
+
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 32px;
+}
+
+#cancel {
+    color:  #1711a1;
+    border: unset;
+    cursor: pointer;
+    font-size: 20px;
+    margin-right: 16px;
+    padding: 8px;
+}
+
+#create {
+    background-color:  #1711a1;
+    color: white;
+    border-radius: 5px;
+    border: unset;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 8px;
+}
+
+.d-none {
+    display: none;
+}
+
+
+@media (max-width: 1200px) {
+    .rightContainer {
+        margin-top: 3%;
+        margin-bottom: 3%;
+        margin-right: 3%;
+        margin-left: 18%;
+    }
+    
+}
+
+@media (max-width: 1100px) {
+    
+    .createdTaskPopup{
+        left: 38%;
+        top: 38%;
+    }
+}
+
+@media (max-width : 1000px) {
+    h2 {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 920px) {
+    .bgColor {
+        width: 140px;
+    } 
+    .createdTaskPopup{
+        left: 33%;
+        top: 38%;
+    }
+}
+
+@media (max-width: 850px) {
+    .rightContainer {
+        height: 90%;
+        margin-left:10%;
+    } 
+    .rightContainer{
+        margin-top: 6%;
+        margin-right: 3%;
+        margin-bottom: 3%;
+    }
+    .leftContainer {
+        transition: transform 250ms ease-in-out;
+        transform: translateX(-100%);
+    }
+    .header {
+        transition: transform 250ms ease-in-out;
+        transform: translateY(0%);
+        
+    }
+    .board {
+        margin-top: 50px;
+        height: 90%;
+    }
+    .closeContainerIcon {
+       display: flex;
+    }
+    .createdTaskPopup{
+        left: 28%;
+        top: 38%;
+    }
+    .secondNotClickabel{
+        left: 13%;
+    }
+    
+}
+
+
+@media (max-width: 800px) {
+    .inputContain{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .board {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .bgColor {
+        width: 200px;
+        height: 50%;
+    }
+    .inputBox{
+        width: 360px;
+    }
+    .inputFieldSize{
+        width: 302px;
+        height: 42px;
+    }
+}
+
+@media (max-width:700px){
+
+    .popup{
+        left: 30%;
+    }
+    .createdTaskPopup{
+        left: 19%;
+        top: 38%;
+    }
+    .secondNotClickabel{
+        left: 10%;
+    }
+
+    
+}
+
+/* @media (max-width: 690px) {
+    .rightContainer {
+        margin: 2%;
+    }
+    .bgColor {
+        width: 180px;
+    }
+} */
+
+@media (max-width: 630px) {
+    .leftContainer {
+        transition: transform 250ms ease-in-out;
+        transform: translateX(-100%);
+    }
+
+    .header {
+        transition: transform 250ms ease-in-out;
+        transform: translateY(0%);
+    }
+
+    .rightContainer {
+        margin-bottom: 5%;
+        margin-right: 5%;
+        margin-left: 5%;
+        margin-top: 11%;
+        width: 100%;
+    }
+    .createdTaskPopup{
+        left: 16%;
+        top: 38%;
+    }
+    .secondNotClickabel{
+        left: 12%;
+    }
+    .userDiv {
+        display: flex;
+        align-items: center;
+        padding: 8px;
+    } 
+    .userImg{
+        margin-right: 8px;
+    }
+    .backlogBtn{
+        width: 28px;
+        height: 28px;
+    }
+
+}
+
+@media (max-width: 560px) {
+    .rightContainer {
+        margin-top: 13%;
+    }
+    .popup{
+        left: 25%;
+        position: fixed;
+    }
+    .createdTaskPopup{
+        left: 27%;
+        top: 38%;
+        width: 230px;  
+    }
+    .secondNotClickabel{
+        left: 10%;
+    }
+    .newExitStyle{
+        right: 50px;
+        filter: invert(1);
+    }
+    .secondPopup{
+        justify-content: center;
+    }
+    .textpopup{
+        padding: 10px;
+        text-align: center;
+    }
+    .width33{
+        text-align: center;
+        font-size: 15px;
+    }
+    .categoryHead{
+        margin-left: 20px;
+    }
+    .underTask{
+        display: flex;
+        justify-content: space-between;
+        width: 350px;
+    }
+   
+    .descriptionDetails{
+        width: 70px;
+        margin-right: 27px;
+        font-size: 15px;
+        padding-left: 26px;
+    }
+    .backlogBtn {
+        width: 22px;
+        height: 22px;
+    }
+    .backlogBtnGroup{
+        justify-content: center;
+    }
+}
+
+@media (max-width: 490px) {
+    .rightContainer {
+        margin-bottom: 3%;
+        margin-right: 0%;
+        margin-left: 0%;
+        margin-top: 13%;
+        width: 100%;
+    }
+    .popup{
+        left: 20%;
+        position: fixed;
+    }
+}
+
+@media (max-width: 440px) {
+    .bgColor {
+        width:290px;
+        min-height:300px;
+        height: 0%;
+}
+    .rightContainer {
+        margin-top: 17%;
+    }
+
+    .container {
+        height: fit-content;
+    }
+}
+
+@media (max-width:400px) {
+    .bgColor {
+        width: 230px;
+    }
+
+    .rightContainer {
+        margin-top: 20%;
+    }
+    .inputContain{
+        width: 338px;
+        padding-left: 0;
+        padding-right: 0;
+        margin-left: 22px;
+    }
+    .inputBox{
+        
+        width: 260px;
+    }
+    .inputFieldSize{
+        width: 250px;
+    }
+    .inputDescriptionField{
+        width: 250px;
+    }
+    .buttons {
+        justify-content: flex-start;
+        
+    }
+    .headAddTask{
+        width: 215px;
+    }
+    .addButtonAvatar{
+        display: none;
+    }
+    .header{
+        padding-right: 0px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 0px;
+        width: 100%;
+    }
+    .popup{
+        left: 14%;
+        width: 230px;
+        height: 180px;
+        position: fixed;
+    }
+    .createdTaskPopup{
+        left: 20%;
+        top: 38%;
+        width: 230px;  
+    }
+    .secondNotClickabel{
+        left: 0;
+        width: 65vh;
+    }
+    
+    
+}
+
+
+
+
